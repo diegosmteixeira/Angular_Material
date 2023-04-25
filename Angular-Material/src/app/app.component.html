@@ -1,16 +1,17 @@
 <mat-sidenav-container>
       <mat-sidenav
       #sidenav
-      opened
+      class="sidenav"
+      [opened]="!smallScreen"
       [fixedInViewport]="true"
-      mode="push"
-      >
+      [mode]="sidenavMode">
     </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
-      mat-icon-button class="example-icon"
+      mat-icon-button
+      class="example-icon"
       (click)="sidenav.toggle()"
       >
         <mat-icon>menu</mat-icon>

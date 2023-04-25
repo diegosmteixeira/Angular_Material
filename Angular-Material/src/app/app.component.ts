@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular-Material';
+  public smallScreen = false;
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  // ngAfterContentInit(): void {
+  //   this.breakpointObserver.observe(['(max-width: 800px)'])
+  //   .subscribe({
+  //     next: (res) => {
+  //       if (res.matches) {
+  //         this.smallScreen = true;
+  //       } else {
+  //         this.smallScreen = false;
+  //       }
+  //     }
+  //   })
+  // }
+
+  ngAfterContentInit(): void {
+    this.breakpointObserver.observe(['(max-width: 800px)'])
+    .subscribe((res) => this.smallScreen = res.matches);
+  }
+
+  get sidenavMode() {
+    return this.smallScreen ? 'over' : 'side'
+  }
 }
