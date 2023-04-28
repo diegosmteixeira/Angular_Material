@@ -7,15 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './Material/Material.module';
 import { ButtonsIconsComponent } from './buttons-icons/buttons-icons.component';
+import { FormfieldInputComponent } from './formfield-input/formfield-input.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonsIconsComponent
+    ButtonsIconsComponent,
+    FormfieldInputComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MaterialModule
   ],
