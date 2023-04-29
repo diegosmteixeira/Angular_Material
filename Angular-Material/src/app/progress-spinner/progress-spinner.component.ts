@@ -12,20 +12,24 @@ export class ProgressSpinnerComponent implements OnInit {
   public loading = 0
   public queryMode: ProgressBarMode = 'query';
   public queryValue = 0;
+  public buffer = 0;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.loadingProgress(200, 100)
+    this.loadingProgress(700, 100)
         .subscribe(i => this.loading = i);
 
+    this.loadingProgress(450, 100)
+        .subscribe(i => this.buffer = i);
+
     concat(
-      interval(2000)
+      interval(3000)
       .pipe(
         take(1),
         tap(_ => (this.queryMode = 'determinate'))
       ),
-      this.loadingProgress(500, 100)
+      this.loadingProgress(700, 100)
     ).subscribe(i => this.queryValue = i)
   }
 
@@ -36,5 +40,4 @@ export class ProgressSpinnerComponent implements OnInit {
       takeWhile(i => i <= takeUntil)
     )
   }
-
 }
