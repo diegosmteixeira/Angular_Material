@@ -17,10 +17,10 @@ export class ProgressSpinnerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.loadingProgress(700, 100)
+    this.loadingProgress(500, 100)
         .subscribe(i => this.loading = i);
 
-    this.loadingProgress(450, 100)
+    this.loadingProgress(500, 100)
         .subscribe(i => this.buffer = i);
 
     concat(
@@ -29,12 +29,12 @@ export class ProgressSpinnerComponent implements OnInit {
         take(1),
         tap(_ => (this.queryMode = 'determinate'))
       ),
-      this.loadingProgress(700, 100)
+      this.loadingProgress(500, 100)
     ).subscribe(i => this.queryValue = i)
   }
 
   loadingProgress(speed: number, takeUntil: number) {
-    return interval().pipe(
+    return interval(200).pipe(
       // map(i => i * 5),
       // takeWhile(i => i <= 100)
       takeWhile(i => i <= takeUntil)
