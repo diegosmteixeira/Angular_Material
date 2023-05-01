@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Hello {{data}}</h1>
+
+<mat-dialog-content>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio pariatur ad, sapiente itaque aliquam fuga dolorum, ut ex quaerat ullam sequi libero quia voluptas magnam consequatur facilis amet mollitia.</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+<button mat-button (click)="closeDialog()">
+  <mat-icon>close</mat-icon>
+  close
+</button>
+<button mat-button color="warn" [mat-dialog-close]="'Bugiganga from html'">
+  <mat-icon>close</mat-icon>
+  close
+</button>
+</mat-dialog-actions>
+
