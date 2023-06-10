@@ -1,5 +1,9 @@
 <div class="content mat-elevation-z4">
-  <app-toolbar-title title="Users" icon="list"></app-toolbar-title>
+  <app-toolbar-title title="Users" icon="list">
+    <button mat-button-icon>
+      <mat-icon>share</mat-icon>
+    </button>
+  </app-toolbar-title>
   <nav mat-tab-nav-bar ngClass="tab">
     <a mat-tab-link routerLink="/users/myProfile" routerLinkActive="active-link">
       <mat-icon>person</mat-icon>
