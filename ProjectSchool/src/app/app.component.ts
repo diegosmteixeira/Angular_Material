@@ -1,6 +1,8 @@
+import { MenuItem } from './shared/models/menuItem';
 import { Component } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { fromEvent, map } from 'rxjs';
+import { menuItems } from './shared/models/menu';
 
 export const SCROLL_CONTAINER = 'mat-sidenav-content';
 export const TEXT_LIMIT = 64;
@@ -12,9 +14,10 @@ export const SHADOW_LIMIT = 100;
 })
 
 export class AppComponent {
-  public smallScreen = false;
-  public popText = false;
-  public applyShadow = false;
+  public smallScreen: boolean = false;
+  public popText: boolean = false;
+  public applyShadow: boolean = false;
+  public items_menu: MenuItem[] = menuItems;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
@@ -34,18 +37,7 @@ export class AppComponent {
     this.popText = scrollTop >= TEXT_LIMIT;
     this.applyShadow = scrollTop >= SHADOW_LIMIT;
   }
-  // ngAfterContentInit(): void {
-  //   this.breakpointObserver.observe(['(max-width: 800px)'])
-  //   .subscribe({
-  //     next: (res) => {
-  //       if (res.matches) {
-  //         this.smallScreen = true;
-  //       } else {
-  //         this.smallScreen = false;
-  //       }
-  //     }
-  //   })
-  // }
+
 
   ngAfterContentInit(): void {
     this.breakpointObserver.observe(['(max-width: 800px)'])

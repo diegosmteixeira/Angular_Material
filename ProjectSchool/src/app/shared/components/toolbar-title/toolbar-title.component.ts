@@ -6,17 +6,25 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./toolbar-title.component.scss']
 })
 export class ToolbarTitleComponent implements OnInit {
-  @Input() title: string = "";
+  fontSet: string = '';
+  iconFa: string = '';
+  iconMat: string = '';
 
+  @Input() title: string = "";
   // @Input() icon: string = "";
-  iconFa = '';
-  iconMat = '';
 
   @Input() set icon(value: string) {
-    value.includes('fa-') ?
-    this.iconFa = `icon-space-fa ${value}` :
-    this.iconMat = value;
+    if (value.includes('fa-'))
+    {
+      this.iconFa = `icon-space-fa ${value}`;
+      this.fontSet = 'fa';
+    }
+    else {
+      this.iconMat = value;
+    }
   }
+
+
 
   constructor() { }
 
